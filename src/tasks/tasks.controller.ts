@@ -94,6 +94,8 @@ import { UpdateTaskStatusDto } from './dto/update-task-status.dto';
 // import { TaskStatus } from './task-status.enum';
 import { Task } from './task.entity';
 import { TasksService } from './tasks.service';
+import { GetUser } from '../auth/get-user.decorator';
+import { User } from '../auth/user.entity';
 
 @Controller('tasks')
 export class TasksController {
@@ -110,9 +112,17 @@ export class TasksController {
     return this.tasksService.getTaskById(id);
   }
 
+  // @Post()
+  // createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {
+  //   return this.tasksService.createTask(createTaskDto);
+  // }
+
   @Post()
-  createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {
-    return this.tasksService.createTask(createTaskDto);
+  createTask(
+    @Body() createTaskDto: CreateTaskDto,
+    @GetUser() user: User,
+  ): Promise<Task> {
+    return this.tasksService.createTask(createTaskDto, user);
   }
 
   @Delete('/:id')
