@@ -3,7 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { LessonModule } from './lesson/lesson.module';
 import { Lesson } from './lesson/lesson.entity';
-// import { Student } from './student/student.entity';
 // import { StudentModule } from './student/student.module';
 
 @Module({
