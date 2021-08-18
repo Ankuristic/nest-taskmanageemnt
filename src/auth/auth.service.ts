@@ -14,6 +14,7 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
+  // sign up
   async signup(authCredentialsDto: AuthCredentialsDto): Promise<void> {
     return this.usersRepository.createUser(authCredentialsDto);
   }
