@@ -20,7 +20,7 @@ export class LessonResolver {
     private studentService: StudentService,
   ) {}
 
-  @Query((returns) => LessonType)
+  @Query((_returns) => LessonType)
   lesson(@Args('id') id: string) {
     return this.lessonService.getLesson(id);
   }
